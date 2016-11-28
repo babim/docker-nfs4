@@ -1,29 +1,24 @@
 # NFS4
-[![Docker Pulls](https://img.shields.io/docker/pulls/joebiellik/nfs4.svg)](https://hub.docker.com/r/joebiellik/nfs4/)
-
 [NFS v4 server](http://nfs.sourceforge.net/) server running on [Alpine Linux](https://hub.docker.com/_/alpine/).
 
-## Configuration
-See [example directory](https://github.com/jcbiellikltd/docker-nfs4/tree/master/example) for sample config file.
+## RUN
+docker run -it --name nfs-server -p 111:111/tcp -p 111:111/udp -p 2049:2049/tcp -p 2049:2049/udp --privileged babim/nfs
 
-## Quickstart
+## ENVIRONMENT VALUE
 ```
-nfs4:
-  image: joebiellik/nfs4
+FOLDER1 (default: data)
+FOLDER1SHARE (default: rw,fsid=0,root_squash,no_subtree_check,insecure)
+FOLDER1IP (default: *)
 
-  # Required to load kernel NFS module
-  privileged: true
+FOLDER2
+FOLDER2SHARE
+FOLDER2IP
 
-  volumes:
-    # You must provide an exports config file
-    - ./exports:/etc/exports
+FOLDER3
+FOLDER3SHARE
+FOLDER3IP
 
-    # Shares
-    - /mnt:/mnt
-
-  ports:
-    - "111:111/tcp"
-    - "111:111/udp"
-    - "2049:2049/tcp"
-    - "2049:2049/udp"
+FOLDER4
+FOLDER4SHARE
+FOLDER4IP
 ```
