@@ -1,13 +1,10 @@
-FROM alpine
+FROM babim/alpinebase
 
-MAINTAINER Joe Biellik <contact@jcbiellik.com>
-
-RUN set -xe \
-	&& apk add --update --no-progress nfs-utils \
-	&& rm -rf /var/cache/apk/*
+RUN apk add --no-cache nfs-utils && mkdir -p /nfs/config /nfs/data
 
 EXPOSE 111/udp 2049/tcp
 
 COPY entrypoint.sh /entrypoint.sh
 
+VOLUME ["/nfs"]
 CMD ["/entrypoint.sh"]
