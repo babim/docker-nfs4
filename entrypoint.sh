@@ -5,17 +5,17 @@ FOLDER1=${FOLDER1:-data}
 FOLDER1SHARE=${FOLDER1SHARE:-rw,fsid=0,root_squash,no_subtree_check,insecure}
 FOLDER1IP=${FOLDER1IP:-*}
 
-FOLDER2=${FOLDER2:-data}
-FOLDER2SHARE=${FOLDER2SHARE:-rw,fsid=0,root_squash,no_subtree_check,insecure}
-FOLDER2IP=${FOLDER2IP:-*}
+#FOLDER2=${FOLDER2:-data}
+#FOLDER2SHARE=${FOLDER2SHARE:-rw,fsid=0,root_squash,no_subtree_check,insecure}
+#FOLDER2IP=${FOLDER2IP:-*}
 
-FOLDER3=${FOLDER3:-data}
-FOLDER3SHARE=${FOLDER3SHARE:-rw,fsid=0,root_squash,no_subtree_check,insecure}
-FOLDER3IP=${FOLDER3IP:-*}
+#FOLDER3=${FOLDER3:-data}
+#FOLDER3SHARE=${FOLDER3SHARE:-rw,fsid=0,root_squash,no_subtree_check,insecure}
+#FOLDER3IP=${FOLDER3IP:-*}
 
-FOLDER4=${FOLDER4:-data}
-FOLDER4SHARE=${FOLDER4SHARE:-rw,fsid=0,root_squash,no_subtree_check,insecure}
-FOLDER4IP=${FOLDER4IP:-*}
+#FOLDER4=${FOLDER4:-data}
+#FOLDER4SHARE=${FOLDER4SHARE:-rw,fsid=0,root_squash,no_subtree_check,insecure}
+#FOLDER4IP=${FOLDER4IP:-*}
 
 # set config
 if [ ! -f "/nfs/exportfs" ]; then
