@@ -7,9 +7,10 @@ Thanks JoeBiellik
 `docker run -it --name nfs-server -p 111:111/tcp -p 111:111/udp -p 2049:2049/tcp -p 2049:2049/udp --privileged -v /nfsdata:/share babim/nfs`
 
 ## ENVIRONMENT VALUE
+`volume = /share`
 ```
 FOLDER1 (default: data)
-FOLDER1SHARE (default: rw,fsid=0,root_squash,no_subtree_check,insecure)
+FOLDER1SHARE (default: rw,async,no_root_squash,no_subtree_check)
 FOLDER1IP (default: *)
 
 FOLDER2
