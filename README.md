@@ -1,6 +1,7 @@
 Docker NFS Server
 ================
 Thanks cpuguy83
+https://github.com/cpuguy83/docker-nfs-client
 
 Usage
 ----
