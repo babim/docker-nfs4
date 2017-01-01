@@ -10,6 +10,14 @@ ADD nfs.stop /etc/sv/nfs/finish
 
 ADD nfs_setup.sh /usr/local/bin/nfs_setup
 
+RUN apt-get clean && \
+    apt-get autoclean && \
+    apt-get autoremove -y && \
+    rm -rf /build && \
+    rm -rf /tmp/* /var/tmp/* && \
+    rm -rf /var/lib/apt/lists/* && \
+    rm -f /etc/dpkg/dpkg.cfg.d/02apt-speedup
+
 VOLUME /exports
 
 EXPOSE 111/udp 2049/tcp
