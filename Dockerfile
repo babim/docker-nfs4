@@ -1,11 +1,17 @@
-FROM babim/alpinebase
-
-RUN apk add --no-cache nfs-utils && mkdir /share \
+FROM babim/debianbase
+ENV DEBIAN_FRONTEND noninteractive
+RUN apt-get update -qq && apt-get install -y nfs-kernel-server runit inotify-tools -qq && mkdir /share \
 	&& rm -f /etc/exports && ln -sf /share/exports /etc/exports
+RUN mkdir -p /exports
+
+RUN mkdir -p /etc/sv/nfs
+ADD nfs.init /etc/sv/nfs/run
+ADD nfs.stop /etc/sv/nfs/finish
+
+ADD nfs_setup.sh /usr/local/bin/nfs_setup
+
+VOLUME /exports
 
 EXPOSE 111/udp 2049/tcp
 
-COPY entrypoint.sh /entrypoint.sh
-
-VOLUME ["/share"]
-CMD ["/entrypoint.sh"]
+ENTRYPOINT ["/usr/local/bin/nfs_setup"]

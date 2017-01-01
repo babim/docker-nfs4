@@ -1,29 +1,14 @@
-[![](https://images.microbadger.com/badges/image/babim/nfs.svg)](https://microbadger.com/images/babim/nfs "Get your own image badge on microbadger.com")[![](https://images.microbadger.com/badges/version/babim/nfs.svg)](https://microbadger.com/images/babim/nfs "Get your own version badge on microbadger.com")
-
-Thanks JoeBiellik
+Thanks cpuguy83
 
 # NFS4
-[NFS v4 server](http://nfs.sourceforge.net/) server running on [Alpine Linux](https://hub.docker.com/_/alpine/).
+[NFS v4 server](http://nfs.sourceforge.net/)
 
 ## RUN
-`docker run -it --name nfs-server -p 111:111/tcp -p 111:111/udp -p 2049:2049/tcp -p 2049:2049/udp --privileged -v /nfsdata:/share babim/nfs`
+`docker run -it --name nfs-server -p 111:111/tcp -p 111:111/udp -p 2049:2049/tcp -p 2049:2049/udp --privileged -v /nfsdata:/share babim/nfs:debian  /share/to/share /share/to/share2 /share/to/shareN`
 
 ## ENVIRONMENT VALUE
 `volume = /share`
 ```
-FOLDER1 (default: data)
-FOLDER1SHARE (default: rw,async,no_root_squash,no_subtree_check)
-FOLDER1IP (default: *)
-
-FOLDER2
-FOLDER2SHARE
-FOLDER2IP
-
-FOLDER3
-FOLDER3SHARE
-FOLDER3IP
-
-FOLDER4
-FOLDER4SHARE
-FOLDER4IP
+FOLDERSHARE (default: rw,async,no_root_squash,no_subtree_check)
+FOLDERIP (default: *)
 ```
