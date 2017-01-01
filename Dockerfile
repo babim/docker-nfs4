@@ -10,6 +10,10 @@ ADD nfs.stop /etc/sv/nfs/finish
 
 ADD nfs_setup.sh /usr/local/bin/nfs_setup
 
+RUN chmod +x /usr/local/bin/nfs_setup && \
+    chmod +x /etc/sv/nfs/finish && \
+    chmod +x /etc/sv/nfs/run
+
 RUN apt-get clean && \
     apt-get autoclean && \
     apt-get autoremove -y && \
