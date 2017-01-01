@@ -1,5 +1,15 @@
-Thanks evq
-https://github.com/evq/nfs-client
+Docker NFS Server
+================
+Thanks cpuguy83
 
-## RUN
-`docker run -it --cap-add SYS_ADMIN -v /mnt/nfs babim/nfs:client 192.168.1.100:/mnt/nfs /mnt/nfs`
+Usage
+----
+
+```bash
+docker run -d --name nfs-client --link nfs:nfs babim/nfs:client.debian /path/on/nfs/server:/path/on/client
+``` 
+
+Environment:
+
+* Your server NFS default is nfs
+* use `-e SERVERIP=192.168.1.10` to set nfs server IP
