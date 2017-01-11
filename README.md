@@ -31,3 +31,5 @@ FOLDER4
 FOLDER4SHARE
 FOLDER4IP
 ```
+BULK
+`-e FOLDER="/share/server1 /share/server2 /share/server3"`
