@@ -32,4 +32,5 @@ FOLDER4SHARE
 FOLDER4IP
 ```
 BULK
-`-e FOLDER="/share/server1 /share/server2 /share/server3"`
+`-e FOLDER="server1 server2 server3"`
+docker auto create /share/server1 /share/server2 /share/server3 with nfs option default
