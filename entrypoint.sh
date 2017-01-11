@@ -27,8 +27,8 @@ if [ ! -f "/share/exports" ]; then
 if [[ ! -z "${FOLDER}" ]]; then
 for mnt in "${FOLDER}"; do
   src=$(echo $mnt | awk -F':' '{ print $1 }')
-  mkdir -p $src
-  echo "$src $FOLDERIP($FOLDERSHARE)" >> /share/exports
+  if [ ! -d "/share/$src" ]; then mkdir -p /share/$src; fi
+  echo "/share/$src $FOLDERIP($FOLDERSHARE)" >> /share/exports
 done
 fi
 
