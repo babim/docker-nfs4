@@ -27,13 +27,13 @@ if [ ! -f "/share/exports" ]; then
 if [[ ! -z "${FOLDER}" ]]; then
 for mnt in "${FOLDER}"; do
   src=$(echo $mnt | awk -F':' '{ print $1 }')
-  if [ ! -d "/share/$src" ]; then mkdir -p /share/$src; fi
+  if [ ! -d "/share/$src" ]; then mkdir -p "/share/$src"; fi
   echo "/share/$src $FOLDERIP($FOLDERSHARE)" >> /share/exports
 done
 fi
 
 if [[ ! -z "${FOLDER1}" ]]; then
-if [ ! -d "/share/$FOLDER1" ]; then mkdir -p /share/$FOLDER1; fi
+if [ ! -d "/share/$FOLDER1" ]; then mkdir -p "/share/$FOLDER1"; fi
 cat <<EOF>> /share/exports
 
 ## share $FOLDER1
@@ -42,7 +42,7 @@ EOF
 fi
 
 if [[ ! -z "${FOLDER2}" ]]; then
-if [ ! -d "/share/$FOLDER2" ]; then mkdir -p /share/$FOLDER2; fi
+if [ ! -d "/share/$FOLDER2" ]; then mkdir -p "/share/$FOLDER2"; fi
 cat <<EOF>> /share/exports
 
 ## share $FOLDER2
@@ -51,7 +51,7 @@ EOF
 fi
 
 if [[ ! -z "${FOLDER3}" ]]; then
-if [ ! -d "/share/$FOLDER3" ]; then mkdir -p /share/$FOLDER3; fi
+if [ ! -d "/share/$FOLDER3" ]; then mkdir -p "/share/$FOLDER3"; fi
 cat <<EOF>> /share/exports
 
 ## share $FOLDER3
@@ -60,7 +60,7 @@ EOF
 fi
 
 if [[ ! -z "${FOLDER4}" ]]; then
-if [ ! -d "/share/$FOLDER4" ]; then mkdir -p /share/$FOLDER4; fi
+if [ ! -d "/share/$FOLDER4" ]; then mkdir -p "/share/$FOLDER4"; fi
 cat <<EOF>> /share/exports
 
 ## share $FOLDER4
