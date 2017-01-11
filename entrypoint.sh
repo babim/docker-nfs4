@@ -5,6 +5,9 @@ FOLDER1=${FOLDER1:-data}
 FOLDER1SHARE=${FOLDER1SHARE:-rw,async,no_root_squash,no_subtree_check}
 FOLDER1IP=${FOLDER1IP:-*}
 
+FOLDERSHARE=${FOLDER1SHARE:-rw,async,no_root_squash,no_subtree_check}
+FOLDERIP=${FOLDER1IP:-*}
+
 #FOLDER2=${FOLDER2:-data2}
 FOLDER2SHARE=${FOLDER2SHARE:-$FOLDER1SHARE}
 FOLDER2IP=${FOLDER2IP:-*}
@@ -20,7 +23,15 @@ FOLDER4IP=${FOLDER4IP:-*}
 # set config
 if [ ! -f "/share/exports" ]; then
   touch /share/exports
-  
+
+if [[ ! -z "${FOLDER}" ]]; then
+for mnt in "${FOLDER}"; do
+  src=$(echo $mnt | awk -F':' '{ print $1 }')
+  mkdir -p $src
+  echo "$src $FOLDERIP($FOLDERSHARE)" >> /share/exports
+done
+fi
+
 if [[ ! -z "${FOLDER1}" ]]; then
 if [ ! -d "/share/$FOLDER1" ]; then mkdir -p /share/$FOLDER1; fi
 cat <<EOF>> /share/exports
