@@ -5,8 +5,8 @@ FOLDER1=${FOLDER1:-data}
 FOLDER1SHARE=${FOLDER1SHARE:-rw,async,no_root_squash,no_subtree_check}
 FOLDER1IP=${FOLDER1IP:-*}
 
-FOLDERSHARE=${FOLDER1SHARE:-rw,async,no_root_squash,no_subtree_check}
-FOLDERIP=${FOLDER1IP:-*}
+FOLDERSHARE=${FOLDERSHARE:-rw,async,no_root_squash,no_subtree_check}
+FOLDERIP=${FOLDERIP:-*}
 
 #FOLDER2=${FOLDER2:-data2}
 FOLDER2SHARE=${FOLDER2SHARE:-$FOLDER1SHARE}
