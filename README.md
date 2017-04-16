@@ -18,3 +18,9 @@ docker run -itd \
     -e SHARE=movies \
     babim/nfs:client
 ```
+## default:
+```
+FSTYPE nfs4
+MOUNT_OPTIONS nfsvers=4
+MOUNTPOINT /mnt/nfs-1
+```
