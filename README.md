@@ -1,6 +1,13 @@
 #### Thanks https://github.com/flaccid/docker-nfs-client
 
 ## RUN
+Basic example, mounting NFS within container:
+```
+$ docker run -it --privileged=true --net=host -v /mnt/nfs-1 -e SERVER=192.168.0.9 -e SHARE=movies nfs-client
+```
+Writing back to the host:
+
+
 ```
 docker run -itd \
     --privileged=true \
