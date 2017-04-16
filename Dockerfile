@@ -1,6 +1,16 @@
 FROM babim/alpinebase
 
-RUN apk add --no-cache nfs-utils && mkdir -p /share /mnt/nfs /var/www/uploads
+ENV FSTYPE nfs4
+ENV MOUNT_OPTIONS nfsvers=4
+ENV MOUNTPOINT /mnt/nfs-1
+
+RUN apk add --no-cache nfs-utils
+
+# would only be used if extending an running a different main process in fg
+# RUN rc-update add nfs
+
+# https://github.com/rancher/os/issues/641#issuecomment-157006575
+RUN rm /sbin/halt /sbin/poweroff /sbin/reboot
 
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
